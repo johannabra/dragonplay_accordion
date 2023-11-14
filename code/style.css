@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto:wght@100;300;400;500;700&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
 html {
   background: #f2f1f4;
   color: #19171c;
@@ -7,4 +11,16 @@ html {
 }
 .active + .description {
   display: block;
+}
+.container {
+  display: flex;
+
+  flex-direction: column;
+}
+.section {
+  margin-left: 2rem;
+}
+.active + i {
+  transform: rotate(180deg);
+  transition: 1s ease;
 }

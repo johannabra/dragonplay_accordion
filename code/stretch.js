@@ -1,6 +1,6 @@
 // A function that adds and remove the class "active" on the section you click on.
 function toggle(e) {
-  const element = e.target;
+  const element = e.currentTarget;
   element.classList.toggle("active");
 }
 
@@ -18,21 +18,34 @@ async function getPost() {
   const data = await response.json();
   data.forEach((datapost) => {
     console.log(datapost);
+    const containerEl = document.createElement("div");
+    containerEl.setAttribute("class", "container");
+
     const postTitleEl = document.createElement("div");
     postTitleEl.setAttribute("class", "section");
-    postTitleEl.innerHTML = `<h2> ${datapost.title} </h2>`;
+
+    postTitleEl.innerHTML = `
+    <i class="fa-solid fa-angle-down arrow" ></i>
+    <h2> ${datapost.title} </h2>`;
 
     postTitleEl.addEventListener("click", toggle);
-    accordionElement.appendChild(postTitleEl);
+
+    accordionElement.appendChild(containerEl);
+
+    containerEl.appendChild(postTitleEl);
 
     const postBodyEl = document.createElement("div");
     postBodyEl.setAttribute("class", "description");
     postBodyEl.innerHTML = `<p> ${datapost.body} </p>`;
 
-    postTitleEl.appendChild(postBodyEl);
+    containerEl.appendChild(postBodyEl);
+    //const angleArrow = document.createElement("i");
+    //angleArrow.setAttribute("class", "fa-solid fa-angle-down arrow");
+
+    //containerEl.appendChild(angleArrow);
   });
 
-  const allElements = document.querySelectorAll(".section");
+  const allElements = document.querySelectorAll(".container");
   addBackgroundColor(allElements);
 }
 getPost();
