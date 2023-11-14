@@ -9,8 +9,8 @@ const accordionElement = document.querySelector(".accordion");
 const addBackgroundColor = (arr) => {
   arr.forEach((element, index) => {
     if (index % 2 == 0) {
-      element.style.backgroundColor = "lightblue";
-    } else element.style.backgroundColor = "plum";
+      element.style.backgroundColor = "#978E7C";
+    } else element.style.backgroundColor = "#B6AF9D";
   });
 };
 async function getPost() {
@@ -26,7 +26,7 @@ async function getPost() {
 
     postTitleEl.innerHTML = `
     <i class="fa-solid fa-angle-down arrow" ></i>
-    <h2> ${datapost.title} </h2>`;
+    <h3> ${datapost.title} </h3>`;
 
     postTitleEl.addEventListener("click", toggle);
 

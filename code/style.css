@@ -2,6 +2,7 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+
 html {
   background: #f2f1f4;
   color: #19171c;
@@ -12,15 +13,32 @@ html {
 .active + .description {
   display: block;
 }
+.accordion {
+  background-color: #807f67;
+  border-radius: 1rem;
+  padding: 1rem;
+}
 .container {
   display: flex;
-
   flex-direction: column;
 }
-.section {
-  margin-left: 2rem;
+.section:hover {
+  width: 100%;
+  background-color: rgba(162, 161, 221, 0.5);
+  cursor: pointer;
 }
-.active + i {
-  transform: rotate(180deg);
-  transition: 1s ease;
+.section {
+  display: flex;
+  align-items: center;
+}
+i {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.active > i {
+  transform: rotateX(180deg);
+  transition: 0.5s;
+}
+p {
+  margin: 1rem;
 }
