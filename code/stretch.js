@@ -4,16 +4,15 @@ function toggle(e) {
   element.classList.toggle("active");
 }
 
-// Selects and HTML element, and calls a function which will be executed when the element is clicked.
 const accordionElement = document.querySelector(".accordion");
-const section1Element = document.getElementById("section1");
-const section2Element = document.getElementById("section2");
-const section3Element = document.getElementById("section3");
-
-section1Element.addEventListener("click", toggle);
-section2Element.addEventListener("click", toggle);
-section3Element.addEventListener("click", toggle);
-
+//bakgrundfunktion
+const addBackgroundColor = (arr) => {
+  arr.forEach((element, index) => {
+    if (index % 2 == 0) {
+      element.style.backgroundColor = "lightblue";
+    } else element.style.backgroundColor = "plum";
+  });
+};
 async function getPost() {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await response.json();
@@ -32,5 +31,8 @@ async function getPost() {
 
     postTitleEl.appendChild(postBodyEl);
   });
+
+  const allElements = document.querySelectorAll(".section");
+  addBackgroundColor(allElements);
 }
 getPost();
